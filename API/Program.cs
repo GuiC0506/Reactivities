@@ -28,17 +28,17 @@ app.MapControllers();
 
 // "using": forces the garbagge collection to clean this scope
 using var temporaryServiceScope = app.Services.CreateScope();
-var ServicesResolver = temporaryServiceScope.ServiceProvider;
+var servicesResolver = temporaryServiceScope.ServiceProvider;
 
 try
 {
-    var temporaryDbContext = ServicesResolver.GetRequiredService<DataContext>();
+    var temporaryDbContext = servicesResolver.GetRequiredService<DataContext>();
     await temporaryDbContext.Database.MigrateAsync();
     await Seed.SeedData(temporaryDbContext);
 }
 catch (Exception ex)
 {
-    var logger = ServicesResolver.GetRequiredService<ILogger<Program>>();
+    var logger = servicesResolver.GetRequiredService<ILogger<Program>>();
     logger.LogError(ex, "Something went wrong during the migration process");
 }
 // from the memory after it's finished its role. It's a disposer

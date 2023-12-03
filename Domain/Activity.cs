@@ -1,4 +1,5 @@
 namespace Domain
+// business rules 
 {
     public class Activity
     {       

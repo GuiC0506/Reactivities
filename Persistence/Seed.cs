@@ -5,11 +5,11 @@ namespace Persistence
     public class Seed
     {
         public static async Task SeedData(DataContext context)
-        {
+        {   
             if (context.Activities.Any()) return;
             var activities = new List<Activity>
             {
-                new Activity
+                new()
                 {
                     Title = "Past Activity 1",
                     Date = DateTime.UtcNow.AddMonths(-2),
@@ -19,7 +19,7 @@ namespace Persistence
                     Venue = "Somewhere on Singapore"
                 },
 
-                new Activity
+                new()
                 {
                     Title = "Past Activity 2",
                     Date = DateTime.UtcNow.AddMonths(-5),
@@ -28,7 +28,7 @@ namespace Persistence
                     City = "Seattle, United States",
                     Venue = "Somewhere on Seattle"
                 },
-                new Activity
+                new()
                 {
                     Title = "Past Activity 3",
                     Date = DateTime.UtcNow.AddMonths(-7),
@@ -37,7 +37,7 @@ namespace Persistence
                     City = "Dallas, United States",
                     Venue = "Somewhere on Dallas"
                 },
-                new Activity
+                new()
                 {
                     Title = "Future Activity 1",
                     Date = DateTime.UtcNow.AddMonths(2),
@@ -46,7 +46,7 @@ namespace Persistence
                     City = "Singapore, Singapore",
                     Venue = "Somewhere on London"
                 },
-                new Activity
+                new()
                 {
                     Title = "Future Activity 2",
                     Date = DateTime.UtcNow.AddMonths(5),
@@ -55,7 +55,7 @@ namespace Persistence
                     City = "Seattle, United States",
                     Venue = "Somewhere on Seattle"
                 },
-                new Activity
+                new()
                 {
                     Title = "Future Activity 3",
                     Date = DateTime.UtcNow.AddMonths(7),
